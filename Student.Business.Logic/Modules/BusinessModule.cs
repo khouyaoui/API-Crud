@@ -11,7 +11,7 @@ namespace Student.Business.Logic.Modules
         protected override void Load(ContainerBuilder builder)
         {
             builder
-                .RegisterType<StudenDaoSql>()
+                .RegisterType<StudentDaoSql>()
                 .As<IRepository>()
                 .InstancePerRequest();
 

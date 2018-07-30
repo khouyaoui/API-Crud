@@ -12,84 +12,59 @@ namespace Studen_Business.Facade.Controllers
     public class AlumnoController : ApiController
     {
         private readonly ILogger Log;
-        private readonly IBusiness studenBl;
+        private readonly IBusiness studentBl;
 
         public AlumnoController(ILogger Log, IBusiness business)
         {
             this.Log = Log;
-            this.studenBl = business;
+            this.studentBl = business;
         }
 
-        // GET: api/Alumno
+
+
+        // GET: api/Alumno/GetAll
         [HttpGet()]
         public IHttpActionResult GetAll()
         {
             Log.Debug("" + System.Reflection.MethodBase.GetCurrentMethod().Name);
-
-            List<Alumno> alumnos = studenBl.GetAlumnos();
-
-            return Ok(alumnos);
+            return Ok(studentBl.GetAll());
         }
+
 
         // GET: api/Alumno/5
         [HttpGet()]
-        public IHttpActionResult Get(int id)
+        [Route("api/Alumno/GetById/{guid}")]
+        public IHttpActionResult GetById(Guid guid)
         {
             Log.Debug("" + System.Reflection.MethodBase.GetCurrentMethod().Name);
-
-            Alumno alumno = studenBl.GetAlumnoById(id);
-
-            return Ok(alumno);
+            return Ok(studentBl.GetById(guid));
         }
 
         // POST: api/Alumno
-
         [HttpPost()]
-        [ResponseType(typeof(Alumno))]
+        [Route("api/Alumno/Post")]
         public IHttpActionResult Post(Alumno alumno)
         {
-
-            try
-            {
-                Alumno alumnoInset = studenBl.Create(alumno);
-                return CreatedAtRoute("DefaultApi",
-                    new { id = alumnoInset.Id }, alumnoInset);
-            }
-            catch (Exception ex)
-            {
-                Log.Error(ex + System.Reflection.MethodBase.GetCurrentMethod().Name);
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
-            }
+            Log.Debug("" + System.Reflection.MethodBase.GetCurrentMethod().Name);
+            return Ok(studentBl.AddAlumno(alumno));
         }
 
         // PUT: api/Alumno/5
         [HttpPut()]
-        [ResponseType(typeof(Alumno))]
-        public IHttpActionResult Put(int id, Alumno alumno)
+        [Route("api/Alumno/Update/{guid}")]
+        public IHttpActionResult Put(Guid guid, Alumno alumno)
         {
-
-            try
-            {
-                Alumno alumnoInset = studenBl.UpDateAlumno(alumno, id);
-                return Ok(alumnoInset);
-            }
-            catch (Exception ex)
-            {
-                Log.Error(ex + System.Reflection.MethodBase.GetCurrentMethod().Name);
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
-            }
+            Log.Debug("" + System.Reflection.MethodBase.GetCurrentMethod().Name);
+            return Ok(studentBl.Update(guid, alumno));
         }
 
-        [HttpDelete()]
         // DELETE: api/Alumno/5
-        public IHttpActionResult Delete(int id)
+        [HttpDelete()]
+        [Route("api/Alumno/Remove/{guid}")]
+        public IHttpActionResult Remove(Guid guid)
         {
-
             Log.Debug("" + System.Reflection.MethodBase.GetCurrentMethod().Name);
-
-            bool IsDelete = studenBl.DeleteAlumnoById(id);
-
-            return Ok(IsDelete);
+            return Ok(studentBl.Remove(guid));
         }
     }
 }

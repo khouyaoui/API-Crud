@@ -17,52 +17,73 @@ namespace Student.Business.Logic.BusinessLogic
             this.repository = dao;
         }
 
-        public Alumno Create(Alumno alumno)
+        public int AddAlumno(Alumno alumno)
         {
-            Alumno alumnoInsert;
             try
             {
                 Log.Debug("" + System.Reflection.MethodBase.GetCurrentMethod().Name);
-
-                alumnoInsert = repository.Create(alumno);
-
-                return alumnoInsert;
+                return repository.AddAlumno(alumno);
             }
             catch (Exception ex)
             {
-                Log.Error(ex + System.Reflection.MethodBase.GetCurrentMethod().Name);
+                Log.Error(ex);
                 throw ex;
             }
         }
 
-        public bool DeleteAlumnoById(int id)
-        {
-            Log.Debug("" + System.Reflection.MethodBase.GetCurrentMethod().Name);
-            return repository.DeleteAlumnoById(id);
-        }
-
-        public Alumno GetAlumnoById(int id)
-        {
-            Log.Debug("" + System.Reflection.MethodBase.GetCurrentMethod().Name);
-            return repository.GetAlumnoById(id);
-        }
-
-        public List<Alumno> GetAlumnos()
-        {
-            Log.Debug("" + System.Reflection.MethodBase.GetCurrentMethod().Name);
-            return repository.GetAlumnos();
-        }
-
-        public Alumno UpDateAlumno(Alumno alumno, int id)
+        public List<Alumno> GetAll()
         {
             try
             {
                 Log.Debug("" + System.Reflection.MethodBase.GetCurrentMethod().Name);
-                return repository.UpDateAlumno(alumno, id);
+                return repository.GetAll();
             }
             catch (Exception ex)
             {
-                Log.Error(ex + System.Reflection.MethodBase.GetCurrentMethod().Name);
+                Log.Error(ex);
+                throw ex;
+            }
+        }
+
+        public Alumno GetById(Guid guid)
+        {
+            try
+            {
+                Log.Debug("" + System.Reflection.MethodBase.GetCurrentMethod().Name);
+                return repository.GetById(guid);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                throw ex;
+            }
+        }
+
+        public Alumno Update(Guid guid, Alumno alumno)
+        {
+            try
+            {
+                Log.Debug("" + System.Reflection.MethodBase.GetCurrentMethod().Name);
+                return repository.Update(guid, alumno);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                throw ex;
+            }
+        }
+
+        public int Remove(Guid guid)
+        {
+            try
+            {
+                // Obtener el nombre del metodo --> System.Reflection.MethodBase.GetCurrentMethod().Name
+                Log.Debug("" + System.Reflection.MethodBase.GetCurrentMethod().Name);
+                return repository.Remove(guid);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
                 throw ex;
             }
         }

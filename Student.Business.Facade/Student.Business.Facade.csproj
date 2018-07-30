@@ -241,10 +241,8 @@
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\V1_createTables.html">
-      <BrowseToURL>~/Scripts/V1_createTables.sql</BrowseToURL>
-    </Content>
     <Content Include="Scripts\V1_CreateTables.sql" />
+    <Content Include="Scripts\V2_CreateProcedures.sql" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
