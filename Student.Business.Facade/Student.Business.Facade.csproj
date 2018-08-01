@@ -193,6 +193,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AlumnoController.cs" />
+    <Compile Include="Controllers\FacturaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -243,7 +244,9 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\V1_CreateTables.sql" />
     <Content Include="Scripts\V2_CreateProcedures.sql" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -293,6 +296,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Student.Business.Logic.Contracts\Student.Business.Logic.Contracts.csproj">
+      <Project>{641a25de-1536-44dc-ab0e-6cafd961eaae}</Project>
+      <Name>Student.Business.Logic.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Student.Business.Logic\Student.Business.Logic.csproj">
       <Project>{fb6dd6ca-3b38-4ab2-8dd3-06ceacadfc12}</Project>
       <Name>Student.Business.Logic</Name>

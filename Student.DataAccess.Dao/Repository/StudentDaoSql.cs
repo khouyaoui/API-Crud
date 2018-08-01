@@ -71,15 +71,12 @@ namespace Student.DataAccess.Dao.Repository
         public List<Alumno> GetAll()
         {
             List<Alumno> listaAlumnos = new List<Alumno>();
-            //csharp-station.com
             try
             {
-                //var sql = "SELECT * FROM dbo.Alumnos";
-
                 using (SqlConnection _conn = new SqlConnection(connectionString))
                 {
                     _conn.Open();
-
+                    //select mediante procedure de sql
                     using (SqlCommand _cmd = new SqlCommand("DataSelect", _conn))
                     {
                         using (SqlDataReader reader = _cmd.ExecuteReader())
@@ -121,11 +118,10 @@ namespace Student.DataAccess.Dao.Repository
                 {
                     using (SqlCommand _cmd = new SqlCommand("DataSelectById", _conn))
                     {
+                        _conn.Open();
                         _cmd.CommandType = CommandType.StoredProcedure;
                         SqlParameter FindGuid = _cmd.Parameters.Add("@GUID", SqlDbType.UniqueIdentifier);
-                        FindGuid.SqlValue = guid;
-
-                        _conn.Open();
+                        FindGuid.SqlValue = guid;  
 
                         using (SqlDataReader reader = _cmd.ExecuteReader())
                         {
@@ -158,18 +154,14 @@ namespace Student.DataAccess.Dao.Repository
         {
             try
             {
-                //var sql = "DELETE FROM dbo.Alumnos WHERE Guid=@GUID";
-
                 using (SqlConnection _conn = new SqlConnection(connectionString))
-                {
+                { //Borrar con procedure
                     using (SqlCommand _cmd = new SqlCommand("DataDeteleById", _conn))
                     {
-                        _cmd.Parameters.AddWithValue("@GUID", guid);
-
+                        _conn.Open();
                         _cmd.CommandType = CommandType.StoredProcedure;
                         SqlParameter FindGuid = _cmd.Parameters.Add("@GUID", SqlDbType.UniqueIdentifier);
                         FindGuid.SqlValue = guid;
-                        _conn.Open();
 
 
                         _cmd.ExecuteNonQuery();

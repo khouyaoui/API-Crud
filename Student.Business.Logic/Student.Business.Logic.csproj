@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogic\Factura.cs" />
+    <Compile Include="BusinessLogic\FacturaBL.cs" />
     <Compile Include="BusinessLogic\IBusiness.cs" />
     <Compile Include="BusinessLogic\StudentBL.cs" />
     <Compile Include="Modules\BusinessModule.cs" />
@@ -52,6 +54,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Student.Business.Logic.Contracts\Student.Business.Logic.Contracts.csproj">
+      <Project>{641a25de-1536-44dc-ab0e-6cafd961eaae}</Project>
+      <Name>Student.Business.Logic.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Student.Common.Logic\Student.Common.Logic.csproj">
       <Project>{1edb5865-e5eb-469a-b2df-bf6972285c62}</Project>
       <Name>Student.Common.Logic</Name>

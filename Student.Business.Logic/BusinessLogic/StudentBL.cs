@@ -4,7 +4,7 @@ using Student.Common.Logic.Log4net;
 using Student.Common.Logic.Model;
 using Student.DataAccess.Dao.Interfaces;
 
-namespace Student.Business.Logic.BusinessLogic
+namespace Student.Business.Logic.Contrants
 {
     public class StudentBL : IBusiness
     {

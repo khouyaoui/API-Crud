@@ -3,6 +3,7 @@ using Student.Common.Logic.Log4net;
 using Student.DataAccess.Dao.Interfaces;
 using Student.DataAccess.Dao.Modules;
 using Student.DataAccess.Dao.Repository;
+using Student.DataAccess.Dao.StoreProcedure;
 
 namespace Student.Business.Logic.Modules
 {
@@ -14,6 +15,10 @@ namespace Student.Business.Logic.Modules
                 .RegisterType<StudentDaoSql>()
                 .As<IRepository>()
                 .InstancePerRequest();
+            /*builder
+                .RegisterType<RepositoryStoreProcedureStudent>()
+                .As<IRepository>
+                .InstancePerDependency();*/
 
             builder
                 .RegisterType<Log4netAdapter>()

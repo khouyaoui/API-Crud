@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Student.Business.Logic.BusinessLogic
+namespace Student.Business.Logic.Contrants
 {
     public interface IBusiness
     {

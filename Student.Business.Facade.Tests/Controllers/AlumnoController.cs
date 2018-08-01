@@ -1,4 +1,4 @@
-﻿using Student.Business.Logic.BusinessLogic;
+﻿using Student.Business.Logic.Contrants;
 using Student.Common.Logic.Log4net;
 using Student.Common.Logic.Model;
 using System;

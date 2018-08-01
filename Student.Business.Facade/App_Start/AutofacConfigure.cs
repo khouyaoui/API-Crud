@@ -1,13 +1,6 @@
 ﻿using Autofac;
 using Autofac.Integration.WebApi;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Web;
 using System.Web.Http;
-using Autofac;
-using Student.Business.Facade;
 using Student.Business.Facade.Modules;
 
 namespace Student.Business.Facade.App_Start

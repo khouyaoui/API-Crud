@@ -46,14 +46,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Log4net\ILogger.cs" />
+    <Compile Include="Interfaces\ILogger.cs" />
     <Compile Include="Log4net\Log4netAdapter.cs" />
     <Compile Include="Model\Alumno.cs" />
-    <Compile Include="Model\IVuelingObject.cs" />
+    <Compile Include="Interfaces\IVuelingObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Student.Common.Layer\Student.Common.Layer.csproj">
+      <Project>{3ca8aa34-5443-4c4c-af8c-5d092ac43df3}</Project>
+      <Name>Student.Common.Layer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
